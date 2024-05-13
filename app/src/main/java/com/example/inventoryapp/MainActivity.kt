@@ -49,7 +49,7 @@ import com.example.inventoryapp.Navigation.Routes.ROUTE_RECEIPT
 import com.example.inventoryapp.Navigation.Routes.ROUTE_TRANSACTION
 import com.example.inventoryapp.navigation.AppNavHost.AppNavHost
 import com.example.inventoryapp.ui.theme.Screen.MasterData.MasterData
-import com.example.myapplication.ui.theme.Screen.QR.Qr
+
 
 
 class MainActivity : ComponentActivity() {
@@ -92,7 +92,7 @@ fun HomePage(navController: NavHostController) {
         Spacer(modifier = Modifier.height(65.dp))
         val context = LocalContext.current
         val intentMasterData = Intent(context, MasterData::class.java)
-        val intentQr = Intent(context, Qr::class.java)
+      //  val intentQr = Intent(context, Qr::class.java)
         val intentTransaction = Intent(context, SurfaceControl.Transaction::class.java)
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -100,14 +100,14 @@ fun HomePage(navController: NavHostController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             MenuIcon(
-                icon = painterResource(id = R.drawable.masterdata),
+                icon = painterResource(id = R.drawable.store),
                 label = "STORE",
                 onClick = {
                     navController.navigate(ROUTE_POSMasterData)
                 }
             )
             MenuIcon(
-                icon = painterResource(id = R.drawable.transactionsukses),
+                icon = painterResource(id = R.drawable.img_1),
                 label = "PRODUCTS",
                 onClick = {
                    navController.navigate(ROUTE_POSTransaction)
@@ -115,7 +115,7 @@ fun HomePage(navController: NavHostController) {
                 }
             )
             MenuIcon(
-                icon = painterResource(id = R.drawable.qrscan),
+                icon = painterResource(id = R.drawable.add),
                 label = "ADD",
                 onClick = {
                     navController.navigate(ROUTE_AddProduct)

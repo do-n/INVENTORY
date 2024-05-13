@@ -23,13 +23,10 @@ import androidx.compose.material3.Text
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.inventoryapp.Data.ProductAdd
-import com.example.inventoryapp.Data.ProductViewModel
 import com.example.inventoryapp.Data.onCancel
-import com.example.inventoryapp.Navigation.Routes.ROUTE_POSMasterData
-
 
 @Composable
-fun AddProductScreen(context: NavHostController, navController: Any) {
+fun AddProductScreen(context: NavHostController) {
 
     var name by remember { mutableStateOf("") }
     var price by remember { mutableStateOf("") }
@@ -52,7 +49,7 @@ fun AddProductScreen(context: NavHostController, navController: Any) {
         )
 
         Image(
-            painter = painterResource(id = imageUri?.let { R.drawable.ic_launcher_foreground } ?: R.drawable.masterdata),
+            painter = painterResource(id = imageUri?.let { R.drawable.ic_launcher_foreground } ?: R.drawable.add),
             contentDescription = null,
             modifier = Modifier
                 .size(120.dp)
@@ -108,12 +105,7 @@ fun AddProductScreen(context: NavHostController, navController: Any) {
 
 
         Button(
-            onClick = {
-                val productRepository =
-                    ProductViewModel(ProductAdd(name, price, stock, description, imageUri))
-                navController.navigate(ROUTE_POSMasterData)},
-
-       // { onSave(ProductAdd(name, price, stock, description, imageUri)) },
+            onClick = { onSave(ProductAdd(name, price, stock, description, imageUri)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -153,16 +145,8 @@ fun AddProductScreen(context: NavHostController, navController: Any) {
     }
 }
 
-fun ProductViewModel(navController: ProductAdd): ProductViewModel {
-    TODO("Not yet implemented")
-}
-
-private fun Any.navigate(routePosmasterdata: String) {
-    TODO("Not yet implemented")
-}
-
 fun onSave(productAdd: ProductAdd) {
-
+    TODO("Not yet implemented")
 }
 
 class AddProduct(onSave: NavHostController) : ComponentActivity() {

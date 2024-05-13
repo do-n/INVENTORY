@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.deaenita.posfinalproject.POSMasterData
 import com.example.inventory.ui.theme.Screen.register.RegisterScreen
 import com.example.inventoryapp.HomePage
 import com.example.inventoryapp.Navigation.Routes.ROUTE_AddProduct
@@ -51,9 +52,6 @@ fun AppNavHost(modifier: Modifier =Modifier, navController: NavHostController= r
            }
         composable(ROUTE_RECEIPT) {
             ReceiptScreen(navController,)
-        }
-        composable(ROUTE_QR) {
-            QrContent(navController,)
         }
         composable(ROUTE_AddProduct) {
             AddProductScreen(navController,)
