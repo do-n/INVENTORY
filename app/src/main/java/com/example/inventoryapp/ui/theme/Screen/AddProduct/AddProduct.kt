@@ -23,10 +23,19 @@ import androidx.compose.material3.Text
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.inventoryapp.Data.ProductAdd
-import com.example.inventoryapp.Data.onCancel
+import com.example.inventoryapp.Navigation.Routes.ROUTE_POSMasterData
+
+private val String.text: Any
+    get() {
+        TODO("Not yet implemented")
+    }
+
+private fun Any.navigate(routePosmasterdata: String) {
+    TODO("Not yet implemented")
+}
 
 @Composable
-fun AddProductScreen(context: NavHostController) {
+fun AddProductScreen(context: NavHostController, ondelete: () -> Unit, navController: Any) {
 
     var name by remember { mutableStateOf("") }
     var price by remember { mutableStateOf("") }
@@ -105,21 +114,23 @@ fun AddProductScreen(context: NavHostController) {
 
 
         Button(
-            onClick = { onSave(ProductAdd(name, price, stock, description, imageUri)) },
+            onClick = { onSave(ProductAdd(name, price, stock, description, imageUri))
+                navController.navigate(ROUTE_POSMasterData)
+        },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
-        ) {
+        ){
             Text("Save")
         }
 
-        Button(
-            onClick = onCancel,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        ) {
-            Text("cancel")
+      //  Button(
+        //    onClick = ondelete,
+          //  modifier = Modifier
+              //  .fillMaxWidth()
+                //.padding(vertical = 8.dp)
+        //) {
+          //  Text("delete")
         }
         if (showDialog) {
             AlertDialog(
@@ -142,7 +153,7 @@ fun AddProductScreen(context: NavHostController) {
                 }
             )
         }
-    }
+
 }
 
 fun onSave(productAdd: ProductAdd) {
